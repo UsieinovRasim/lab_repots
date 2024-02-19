@@ -1,0 +1,13 @@
+<h1>Список отчетов о лабораторных работах</h1>
+<%= link_to 'Создать отчет', new_lab_report_path %>
+
+
+<% @lab_reports.each do |lab_report| %>
+  <div>
+    <h3><%= lab_report.title %></h3>
+    <p><%= lab_report.description %></p>
+    <p><strong>Оценка:</strong> <%= lab_report.grade %></p>
+    <p><%= link_to 'Просмотреть', lab_report %></p>
+  </div>
+<% end %>
+

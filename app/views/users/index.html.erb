@@ -1,0 +1,23 @@
+<h1>Список пользователей</h1>
+<%= link_to 'Добавить студента', new_user_path %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Email</th>
+    <th>Действия</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to 'Показать', user %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+  <div class="conteiner-fluid">
+    <div class="border">
+      <%= render "layouts/sidebar" %>
+    </div>
+    <div class="main-container">
+      <%= yield %>
+    </div>
+  </div>
   </body>
 </html>

@@ -1,0 +1,10 @@
+<h1>Отчет о лабораторной работе</h1>
+
+<div>
+  <h3><%= @lab_report.title %></h3>
+  <p><%= @lab_report.description %></p>
+  <p><strong>Оценка:</strong> <%= @lab_report.grade %></p>
+</div>
+
+<%= link_to 'Редактировать', edit_lab_report_path(@lab_report) %>
+<%= link_to 'Назад', lab_reports_path %>
