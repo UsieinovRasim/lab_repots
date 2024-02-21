@@ -1,9 +1,10 @@
-<h1>Список пользователей</h1>
+<h1>Список студентов</h1>
 <%= link_to 'Добавить студента', new_user_path %>
 
 <table>
   <thead>
   <tr>
+    <th>№</th>
     <th>Имя</th>
     <th>Фамилия</th>
     <th>Email</th>
@@ -13,10 +14,12 @@
   <tbody>
   <% @users.each do |user| %>
     <tr>
+      <td><%= link_to user.id, user %></td>
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
       <td><%= user.email %></td>
-      <td><%= link_to 'Показать', user %></td>
+      <td><%= link_to 'Редактировать', edit_user_path(user) %></td>
+      <td><%= button_to 'Удалить', user_path(user), method: :delete, data: { turbo_confirm: 'Вы уверены?' } %></td>
     </tr>
   <% end %>
   </tbody>

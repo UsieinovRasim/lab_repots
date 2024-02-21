@@ -4,6 +4,5 @@
 <p><strong>Фамилия:</strong> <%= @user.last_name %></p>
 <p><strong>Email:</strong> <%= @user.email %></p>
 
-<%= link_to 'Редактировать', edit_user_path(@user) %> |
-<%= link_to 'Удалить', @user, method: :delete, data: { confirm: 'Вы уверены?' } %> |
+<%= link_to 'Редактировать', edit_user_path(@user) %>
 <%= link_to 'Вернуться к списку', users_path %>

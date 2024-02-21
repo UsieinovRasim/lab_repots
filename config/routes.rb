@@ -1,6 +1,8 @@
-Rails.application.routes.draw do
-  resources :users#, only: %i[ index show new create ]
-  resources :lab_reports#, only: %i[ show edit update create ]
+# frozen_string_literal: true
 
-  root "users#index"
+Rails.application.routes.draw do
+  resources :users
+  resources :lab_reports
+
+  root 'users#index'
 end

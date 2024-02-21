@@ -1,13 +1,27 @@
 <h1>Список отчетов о лабораторных работах</h1>
 <%= link_to 'Создать отчет', new_lab_report_path %>
 
-
-<% @lab_reports.each do |lab_report| %>
-  <div>
-    <h3><%= lab_report.title %></h3>
-    <p><%= lab_report.description %></p>
-    <p><strong>Оценка:</strong> <%= lab_report.grade %></p>
-    <p><%= link_to 'Просмотреть', lab_report %></p>
-  </div>
-<% end %>
-
+<table>
+  <thead>
+  <tr>
+    <th>№</th>
+    <th>Заголовок</th>
+    <th>Описание</th>
+    <th>Студент</th>
+    <th>Оценка</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @lab_reports.each do |lab_report| %>
+    <tr>
+      <td><%= link_to lab_report.id, lab_report %></td>
+      <td><%= lab_report.title %></td>
+      <td><%= lab_report.description %></td>
+      <td><%= lab_report.user.first_name %></td>
+      <td><%= lab_report.grade %></td>
+      <td><%= link_to 'Редактировать', edit_lab_report_path(lab_report) %></td>
+      <td><%= button_to 'Удалить', lab_report_path(lab_report), method: :delete, data: { turbo_confirm: 'Вы уверены?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
