@@ -26,7 +26,7 @@ class LabReportsController < ApplicationController
 
   def update
     if @lab_report.update(lab_report_params)
-      redirect_to lab_reports_path
+      redirect_to lab_report_path(@lab_report)
     else
       render :edit
     end

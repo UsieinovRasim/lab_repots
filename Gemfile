@@ -19,7 +19,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3'
   gem 'pry'
+  gem 'rspec-rails', '~> 6.1'
 end
 
 group :development do
@@ -31,5 +33,8 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
+  gem 'rspec', '~> 3.13'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
 end
