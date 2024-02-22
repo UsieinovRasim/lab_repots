@@ -1,5 +1,14 @@
-<h1>Список</h1>
-
-<%= link_to 'Главная', root_path %> <br>
-<%= link_to 'Студенты', users_path %> <br>
-<%= link_to 'Отчеты', lab_reports_path %>
+<!-- Sidebar -->
+<div class="bg-gray-800 w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+  <nav>
+    <a href="<%= root_path %>" class="block py-2.5 px-4 text-sm text-white hover:bg-gray-700 rounded">
+      Главная
+    </a>
+    <a href="<%= lab_reports_path %>" class="block py-2.5 px-4 text-sm text-white hover:bg-gray-700 rounded">
+      Отчеты
+    </a>
+    <a href="<%= users_path %>" class="block py-2.5 px-4 text-sm text-white hover:bg-gray-700 rounded">
+      Студенты
+    </a>
+  </nav>
+</div>

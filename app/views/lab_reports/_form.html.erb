@@ -1,8 +1,10 @@
 <%= form_with(model: [ @user, @lab_report ], local: true) do |form| %>
   <% if @lab_report.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@lab_report.errors.count, "ошибка") %> запрещают сохранение:</h2>
-
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+      <strong class="font-bold">Упс!</strong>
+      <span class="block sm:inline">
+        <%= pluralize(@lab_report.errors.count, "ошибка") %> запрещают сохранение:
+      </span>
       <ul>
         <% @lab_report.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -11,27 +13,27 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, 'Заголовок' %>
-    <%= form.text_field :title %>
+  <div class="mb-4">
+    <%= form.label :title, 'Заголовок', class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div>
-    <%= form.label :description, 'Описание' %>
-    <%= form.text_area :description %>
+  <div class="mb-4">
+    <%= form.label :description, 'Описание', class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_area :description, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div>
-    <%= form.label :user, 'Студент' %>
-    <%= form.select :user_id, LabReport.user_options %>
+  <div class="mb-4">
+    <%= form.label :user, 'Студент', class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.select :user_id, LabReport.user_options, {}, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div>
-    <%= form.label :grade, 'Оценка' %>
-    <%= form.select :grade, LabReport::GRADES %>
+  <div class="mb-4">
+    <%= form.label :grade, 'Оценка', class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.select :grade, LabReport::GRADES, {}, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div>
-    <%= form.submit 'Сохранить' %>
+  <div class="mb-4">
+    <%= form.submit 'Сохранить', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
   </div>
 <% end %>

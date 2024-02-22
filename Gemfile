@@ -24,6 +24,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.1'
 end
 
+group :assets do
+  gem 'sassc', '~> 2.4'
+end
+
 group :development do
   gem 'rubocop', '~> 1.60'
   gem 'rubocop-performance', '~> 1.20'
