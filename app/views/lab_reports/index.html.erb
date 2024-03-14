@@ -1,0 +1,34 @@
+<h1 class="text-3xl font-bold mb-4">Список отчетов о лабораторных работах</h1>
+
+<%= link_to 'Добавить отчет', new_lab_report_path, class: "py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+<div class="my-6">
+  <table class="table-auto w-full">
+    <thead>
+    <tr>
+      <th class="py-2 px-4 bg-gray-100 border-b border-gray-200">№</th>
+      <th class="py-2 px-4 bg-gray-100 border-b border-gray-200">Заголовок</th>
+      <th class="py-2 px-4 bg-gray-100 border-b border-gray-200">Описание</th>
+      <th class="py-2 px-4 bg-gray-100 border-b border-gray-200">Студент</th>
+      <th class="py-2 px-4 bg-gray-100 border-b border-gray-200">Оценка</th>
+      <th class="py-2 px-4 bg-gray-100 border-b border-gray-200"></th>
+      <th class="py-2 px-4 bg-gray-100 border-b border-gray-200"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @lab_reports.each do |lab_report| %>
+      <tr>
+        <td class="border px-4 py-2"><%= link_to lab_report.id, lab_report %></td>
+        <td class="border px-4 py-2"><%= lab_report.title %></td>
+        <td class="border px-4 py-2"><%= lab_report.description %></td>
+        <td class="border px-4 py-2"><%= lab_report.user.first_name %></td>
+        <td class="border px-4 py-2"><%= lab_report.grade %></td>
+        <td class="border px-4 py-2">
+          <%= link_to 'Редактировать', edit_lab_report_path(lab_report), class: "text-indigo-600 hover:text-indigo-900" %></td>
+        <td class="border px-4 py-2">
+          <%= button_to 'Удалить', lab_report_path(lab_report), method: :delete, data: { turbo_confirm: 'Вы уверены?' }, class: "text-red-600 hover:text-red-900" %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
